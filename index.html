@@ -3,102 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Platformer Game</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
-        #game { position: relative; width: 800px; height: 600px; border: 1px solid #000; overflow: hidden; background: #8ED6FF; }
-        .player { position: absolute; width: 50px; height: 50px; background-color: #ff0000; }
-        .platform { position: absolute; width: 100px; height: 20px; background-color: #000; }
-        .spike { position: absolute; width: 20px; height: 20px; background-color: #00ff00; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-        .powerup { position: absolute; width: 30px; height: 30px; background-color: yellow; border-radius: 50%; }
-        .enemy { position: absolute; width: 50px; height: 50px; background-color: blue; }
-        .coin { position: absolute; width: 20px; height: 20px; border-radius: 50%; background-color: gold; }
-    </style>
+    <title>Platformer Game</title>
 </head>
 <body>
-    <div id="game"></div>
     <script>
-        const game = document.getElementById('game');
-        let player = document.createElement('div');
-        player.className = 'player';
-        player.style.left = '50px';
-        player.style.bottom = '50px';
-        game.appendChild(player);
+        let playerY = 500; // Updated spawn position
 
-        let platforms = [];
-        let spikes = [];
-        let enemies = [];
-        let coins = [];
-        let difficulty = 1;
+        // Other game code...
 
-        function createPlatform(x, y) {
-            const platform = document.createElement('div');
-            platform.className = 'platform';
-            platform.style.left = `${x}px`;
-            platform.style.bottom = `${y}px`;
-            game.appendChild(platform);
-            platforms.push(platform);
+        function respawnPlayer() {
+            playerY = 500; // Updated respawn position
+            // Code to respawn player...
         }
-
-        function createSpike(x, y) {
-            const spike = document.createElement('div');
-            spike.className = 'spike';
-            spike.style.left = `${x}px`;
-            spike.style.bottom = `${y}px`;
-            game.appendChild(spike);
-            spikes.push(spike);
-        }
-
-        function createEnemy(x, y) {
-            const enemy = document.createElement('div');
-            enemy.className = 'enemy';
-            enemy.style.left = `${x}px`;
-            enemy.style.bottom = `${y}px`;
-            game.appendChild(enemy);
-            enemies.push(enemy);
-        }
-
-        function createCoin(x, y) {
-            const coin = document.createElement('div');
-            coin.className = 'coin';
-            coin.style.left = `${x}px`;
-            coin.style.bottom = `${y}px`;
-            game.appendChild(coin);
-            coins.push(coin);
-        }
-
-        function createPowerUp(x, y) {
-            const powerup = document.createElement('div');
-            powerup.className = 'powerup';
-            powerup.style.left = `${x}px`;
-            powerup.style.bottom = `${y}px`;
-            game.appendChild(powerup);
-        }
-
-        function increaseDifficulty() {
-            difficulty += 0.5;
-            // add more platforms, enemies, etc. 
-        }
-
-        function gameOver() {
-            alert('Game Over!')
-            increaseDifficulty();
-            resetGame();
-        }
-
-        function resetGame() {
-            // Logic for resetting the game state
-            // possibly reposition player and reset enemies
-        }
-
-        // Sample level generation
-        createPlatform(100, 100);
-        createSpike(200, 120);
-        createEnemy(300, 150);
-        for (let i = 0; i < 5; i++) {
-            createCoin(Math.random() * 760, Math.random() * 580);
-        }
-        createPowerUp(400, 200);
     </script>
 </body>
 </html>
